@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-12">
+    <!-- <img src="src/assets/images/userImg" alt="Seller Image"> -->
+    <div class=" btn-group  m-md-3 m-1">
+ 
+      <button class=" btn btn-primary btn-lg mr-2 " routerLink="/seller/addProduct">Add Product</button>
+      <button class=" btn btn-secondary btn-lg mr-2" (click)="showproducts()">My Products</button>
+      <button class=" btn btn-success btn-lg mr-2" (click)="showorders()">Orders for Me</button>
+      <button class=" btn-info btn-lg mr-2">LogOut</button>
+
+  </div>
+</div>
+</div>
+  <!-- [ngSwitch]="show"
+  *ngSwitchCase="ProductList" -->
+ 
+  <!-- <router-outlet></router-outlet>
+<div class="row">
+  <div class="container">
+  <div class="col">
+    <div  class="card-group
+    " *ngIf="ProductList">
+<div class="card flex-wrap mr-4 " style="width: 18rem;"  *ngFor="let product of products">
+  <img width="250px "height="100px" class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+     <h5 class="card-title">{{product.name}}</h5>    
+     <p class="card-text"><small class="text-muted">{{product.price}}</small></p>
+      <div class="btn-group">
+              <button class="float-left btn btn-success mr-2" (click)="beforeUpdated(product)">Update</button>
+              <button class="float-right btn btn-danger" (click)="deleteProduct(product._id)">Delete</button>
+            </div>
+  </div>
+</div>-->
+
+<div class="container">
+<div class="row  " *ngIf="ProductList">
+  <div class="column">
+   
+     <div class="card flex-wrap mr-4 ml-1 ml-md-3 mb-2 mb-md-4 " style="width: 18rem;"  *ngFor="let product of products">
+  <img width="250px "height="100px" class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+     <h5 class="card-title">{{product.name}}</h5>    
+     <p class="card-text"><small class="text-muted">Price rs{{product.price}}</small></p>
+     <p class="card-text"><small class="text-muted">Category {{product.category}}</small></p>
+      <div class="btn-group">
+              <button class="float-left btn btn-success mr-2" (click)="beforeUpdated(product)">Update</button>
+              <button class="float-right btn btn-danger" (click)="deleteProduct(product._id)">Delete</button>
+            </div>
+  </div>
+</div>
+   
+  </div>
+</div>
+</div>
+
+          <!-- <h5>{{product._id}}</h5> -->
+                   
+
+            
+           
+           
+            
+            <!-- <button (click)="onDelete(product.id)" >Delete</button> -->
+     
+
+
+ 
+
+
+
+  <h6 class="pb-2 mb-0">My orders</h6>
+    <table class="table" *ngIf="showMyOrders">
+      <thead>
+        <tr>
+          <th scope="col">OrderId</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Location</th>
+          <th scope="col">Phone No.</th>
+          
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let o of myOrders">
+          
+          <td>{{o._id}}</td>
+          <td>Rs. {{o.price}}</td>
+          <td>{{o.quantity }}</td>
+
+           <td>{{o.shippingInfo.location }}</td>
+            <td>{{o.shippingInfo.phone }}</td>
+          <td>
+           {{o.price*o.quantity}}
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>

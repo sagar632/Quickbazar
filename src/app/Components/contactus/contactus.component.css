@@ -1,0 +1,13 @@
+.full-width {
+    width: 95%;
+    font-size: 20px;margin: 10px;
+}
+
+.half-width {
+    width: 45%;
+     font-size: 20px;margin: 20px;
+}
+
+.form-size {
+    width: 85%; font-size: 20px;
+}

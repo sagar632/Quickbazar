@@ -1,0 +1,24 @@
+carousel{
+margin-top: 10;
+}
+
+/* .carousel-slide{
+ height: 200px;
+} */
+
+.carousel-image{width: 100%;
+	margin-top: 10px;
+    height:400px;
+
+}
+h3{
+	color: black;
+	font-weight: bold; font-size: 25px;
+}
+p{
+	color: black;
+	font-size: 15px;
+}
+.lead{
+	font-size: 25px;
+}

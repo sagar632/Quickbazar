@@ -1,0 +1,197 @@
+
+<div class="container mt-5">
+  
+
+  <div class="row">
+<img >
+
+    <div class="col-12 col-md-6">
+
+
+
+    </div>
+
+    <div class="col-12 col-md-6">
+
+<h2>{{product.name}}</h2>
+<h6>Ratings {{product.ratings}} </h6>
+<h5>Category {{product.category}}</h5>
+<h3>Price Rs. {{product.price}}</h3>
+<br>
+<br><div class="container">
+Quantity: <button type="button" (click)="Dcr()" [disabled]=" productQuantity < 1 ">-</button>
+              <button>{{productQuantity}}</button>
+            <button type="button"  (click)="Incr()">+</button></div>
+  <div class="btn-group mt-5">
+            <button type="button" class="btn btn-info mr-3" (click)="addToCart(product._id)" >Buy now</button>
+            <button type="button" class="btn btn-info ml-2" (click)="addToCart(product)" >Add to Cart</button>
+            </div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<div class="container  ml-md-5 col-12 mt-md-4 mt-2">
+<p>{{product.description}}</p>
+</div>
+
+<!--
+<div class="prod-details">
+    <div class="card-group col-4">
+        <div class="card" >
+          <div class="card-body">
+            <h5>{{ product._id }}</h5>
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">
+              <small class="text-muted">{{ product.price }}</small>
+            </p>
+            Quantity: <button type="button" (click)="Dcr()" [disabled]=" productQuantity < 1 ">-</button>
+              <button>{{productQuantity}}</button>
+            <button type="button"  (click)="Incr()">+</button>
+            <div class="btn-group">
+            <button type="button" class="btn btn-info" (click)="addToCart(product._id)" >Buy now</button>
+            <button type="button" class="btn btn-info" (click)="addToCart(product)" >Add to Cart</button>
+            </div>
+             <button type="button" class="btn btn-success" (click)="ChangeQty(product._id, 1)">+</button>
+    
+          </div>
+        </div>
+      </div>
+    
+</div>
+<div class="section">
+  <!-- container
+  <div class="container">
+    <!-- row 
+    <div class="row d-flex">
+      <!-- Product main img
+      <div class="col-md-5 col-md-push-2">
+        <div id="product-main-img">
+          <ng-template [ngIf]="thumbimages.length === 0">
+            <div class="product-preview">
+              <img [src]="product.image" alt="">
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="thumbimages.length > 0">
+            <div class="product-preview" *ngFor="let t of thumbimages">
+              <img [src]="t" alt="">
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      /Product main img
+
+      <div class="col-md-2  col-md-pull-5 ">
+       <ng-template [ngIf]="thumbimages.length > 0">
+         <div id="product-imgs">
+           <div *ngFor="let t of thumbimages" class="product-preview">
+             <img [src]="t" alt="">
+           </div>
+         </div>
+       </ng-template>
+        <ng-template [ngIf]="thumbimages.length === 0">
+          <div id="product-imgs">
+            <div class="product-preview">
+              <img [src]="product.image" alt="">
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Product details -->
+    
+
+
+
+
+
+
+
+
+
+      <div class="container">
+    
+      <div  *ngIf="product">
+          <h1>Reviews</h1>
+          <mat-list>
+       <mat-list-item *ngFor="let review of product.reviews">
+   
+        <h1 matLine>{{product.review}}</h1>
+           <h1 matLine>{{product.rating}} Stars</h1>
+           <h1 matLine>--{{product.author}} {{product.date |date}} </h1>
+        
+         </mat-list-item>
+    
+    </mat-list>
+          
+          <div [hidden]="!reviewform.valid" >
+          <p>
+      <matLine>{{reviewform.value.review}}</matLine></p>
+           <p> <matLine>{{reviewform.value.rating}} Stars</matLine></p>
+         <p> <matLine>--{{reviewform.value.author}}</matLine></p>
+    </div>
+      
+      
+      <form novalidate [formGroup]="reviewform" #cform="ngForm" (ngSubmit)="onsubmit()" >
+          <p>
+
+          <mat-form-field>
+              <input matInput formControlName="author"placeholder="Name"type="text"re
+                     >
+              
+              <mat-error *ngIf="reviewform.get('author').hasError('required')&& reviewform.get('author').touched ">Author name is required</mat-error>
+              
+             
+              
+               <mat-error *ngIf="reviewform.controls.author.hasError('minlength')">Author name must be more than two characters</mat-error>
+               
+              
+              
+              
+              
+              </mat-form-field></p>
+          
+          <p>
+          <mat-slider formControlName="rating"min="0" max="5" step="1" tickInterval="1" value="5" thumbLabel></mat-slider>
+          </p>
+          <p>
+          <mat-form-field>
+              <textarea matInput formControlName="review"placeholder="Enter review"type="text"required rows="6"></textarea>
+              <mat-error *ngIf="reviewform.get('review').hasError('required') && reviewform.get('review').touched">review is required</mat-error>
+              
+              
+              
+              
+              
+              </mat-form-field></p>
+      
+      <button [disabled]="cform.form.invalid" type="submit"mat-button class="background-primary btn-primary mb-3 text-floral-white">review</button>
+      
+      
+      
+      
+      
+      
+      
+      </form>
+      
+      
+      
+      </div>
+      
+      
+      
+      
+      
+   
+  </div>
+
+
+
