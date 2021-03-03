@@ -136,16 +136,17 @@
  <hr>
 <div class="col-12 " >
         <div class="row mt-2">
-          <div class="col-md-4 col-sm-6"  *ngFor="let p of products" >
-          <div >{{p.category}}</div>
+          <div class="col-md-4 col-sm-6"  *ngFor="let p of electronicproduct.products" >
+         
           <a routerLink="/product-details" (click)="showDetailsPage(p)">
               <div class="card my-2" >
-              <img [src]="p.image" alt="{{p.name}}" height="250px" width="100px" class="card-img-top" (click)="selectProduct(p._id)" style="cursor:pointer;">
+              <img  class="img-fluid" src="{{p.image}}" alt="{{p.name}}" height="200px" width="100px" class="card-img-top" (click)="selectProduct(p._id)" style="cursor:pointer;">
              
               <div class="card-body">
                 <p class="font-weight-bold mb-0">{{p.name | titlecase}} </p>
-                <h6 class="mb-0">{{p.description.substr(0, 40)}} ....</h6><span> <a routerLink="/product-details" (click)="showDetailsPage(p)">More Details</a></span>
-                <p class="lead font-weight-bold mb-0 float-right text-primary">Rs. {{p.price }}</p>
+                <h6 class="mb-0">{{p.description.substr(0, 40)}} ....</h6><span> <a routerLink="/product-details" (click)="showDetailsPage(p)">More Details</a>
+                <div class="lead font-weight-bold mb-0  float-right text-primary">Rs. {{p.price- (p.discountpercent/100)*p.price }}</div> </span><br>
+                <div class="lead mb-0   offset-2 pri"><del >Rs. {{p.price}} </del> <span class="disper">{{p.discountpercent}}% off</span></div>
               </div>
 
              <div class="col-md-6 ">
@@ -172,12 +173,187 @@
 
 
 
+<div class="container" >
+  <div class="mt-1 mt-md-3 mb-2 mb-md-2">
+    <span class="float-left" ><h3>Clothings</h3></span>
+  <span class="float-right btn btn-danger">Shop Now</span>
+
+  </div>
+ <br>
+ <hr>
+<div class="col-12 " >
+        <div class="row mt-2">
+          <div class="col-md-4 col-sm-6"  *ngFor="let p of clothing.products" >
+         
+          <a routerLink="/product-details" (click)="showDetailsPage(p)">
+              <div class="card my-2" >
+              <img  class="img-fluid" src="{{p.image}}" alt="{{p.name}}" height="200px" width="100px" class="card-img-top" (click)="selectProduct(p._id)" style="cursor:pointer;">
+             
+              <div class="card-body">
+                <p class="font-weight-bold mb-0">{{p.name | titlecase}} </p>
+                <h6 class="mb-0">{{p.description.substr(0, 40)}} ....</h6><span> <a routerLink="/product-details" (click)="showDetailsPage(p)">More Details</a>
+                <div class="lead font-weight-bold mb-0  float-right text-primary">Rs. {{p.price- (p.discountpercent/100)*p.price }}</div> </span><br>
+                <div class="lead mb-0   offset-2 pri"><del >Rs. {{p.price}} </del> <span class="disper">{{p.discountpercent}}% off</span></div>
+              </div>
+
+             <div class="col-md-6 ">
+                  <button class="btn btn-outline-primary btn-sm btn-block"
+                          [class.disabled]="p.quantity < 1"
+                          [class.btn-outline-danger]="p.quantity < 1"
+                          (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+                    {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart"}}
+                  </button>
+                </div>
+
+            </div>
+           </a>
+            
+
+          </div>
+
+        </div>
+</div>
+</div>
+
+
+
+
+
+<div class="container" >
+  <div class="mt-1 mt-md-3 mb-2 mb-md-2">
+    <span class="float-left" ><h3>Fooding</h3></span>
+  <span class="float-right btn btn-danger">Shop Now</span>
+
+  </div>
+ <br>
+ <hr>
+<div class="col-12 " >
+        <div class="row mt-2">
+          <div class="col-md-4 col-sm-6"  *ngFor="let p of fooding.products" >
+        
+          <a routerLink="/product-details" (click)="showDetailsPage(p)">
+              <div class="card my-2" >
+              <img  class="img-fluid" src="{{p.image}}" alt="{{p.name}}" height="200px" width="100px" class="card-img-top" (click)="selectProduct(p._id)" style="cursor:pointer;">
+             
+              <div class="card-body">
+                <p class="font-weight-bold mb-0">{{p.name | titlecase}} </p>
+                <h6 class="mb-0">{{p.description.substr(0, 40)}} ....</h6><span> <a routerLink="/product-details" (click)="showDetailsPage(p)">More Details</a>
+                <div class="lead font-weight-bold mb-0  float-right text-primary">Rs. {{p.price- (p.discountpercent/100)*p.price }}</div> </span><br>
+                <div class="lead mb-0   offset-2 pri"><del >Rs. {{p.price}} </del> <span class="disper">{{p.discountpercent}}% off</span></div>
+              </div>
+
+             <div class="col-md-6 ">
+                  <button class="btn btn-outline-primary btn-sm btn-block"
+                          [class.disabled]="p.quantity < 1"
+                          [class.btn-outline-danger]="p.quantity < 1"
+                          (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+                    {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart"}}
+                  </button>
+                </div>
+
+            </div>
+           </a>
+            
+
+          </div>
+
+        </div>
+</div>
+</div>
 
 
 
 
 
 
+<div class="container" >
+  <div class="mt-1 mt-md-3 mb-2 mb-md-2">
+    <span class="float-left" ><h3>Babies & Toys</h3></span>
+  <span class="float-right btn btn-danger">Shop Now</span>
+
+  </div>
+ <br>
+ <hr>
+<div class="col-12 " >
+        <div class="row mt-2">
+          <div class="col-md-4 col-sm-6"  *ngFor="let p of toys.products" >
+       
+          <a routerLink="/product-details" (click)="showDetailsPage(p)">
+              <div class="card my-2" >
+              <img  class="img-fluid" src="{{p.image}}" alt="{{p.name}}" height="200px" width="100px" class="card-img-top" (click)="selectProduct(p._id)" style="cursor:pointer;">
+             
+              <div class="card-body">
+                <p class="font-weight-bold mb-0">{{p.name | titlecase}} </p>
+                <h6 class="mb-0">{{p.description.substr(0, 40)}} ....</h6><span> <a routerLink="/product-details" (click)="showDetailsPage(p)">More Details</a>
+                <div class="lead font-weight-bold mb-0  float-right text-primary">Rs. {{p.price- (p.discountpercent/100)*p.price }}</div> </span><br>
+                <div class="lead mb-0   offset-2 pri"><del >Rs. {{p.price}} </del> <span class="disper">{{p.discountpercent}}% off</span></div>
+              </div>
+
+             <div class="col-md-6 ">
+                  <button class="btn btn-outline-primary btn-sm btn-block"
+                          [class.disabled]="p.quantity < 1"
+                          [class.btn-outline-danger]="p.quantity < 1"
+                          (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+                    {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart"}}
+                  </button>
+                </div>
+
+            </div>
+           </a>
+            
+
+          </div>
+
+        </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="container" >
+  <div class="mt-1 mt-md-3 mb-2 mb-md-2">
+    <span class="float-left" ><h3>Sports</h3></span>
+  <span class="float-right btn btn-danger">Shop Now</span>
+
+  </div>
+ <br>
+ <hr>
+<div class="col-12 " >
+        <div class="row mt-2">
+          <div class="col-md-4 col-sm-6"  *ngFor="let p of sports.products" >
+        
+          <a routerLink="/product-details" (click)="showDetailsPage(p)">
+              <div class="card my-2" >
+              <img  class="img-fluid" src="{{p.image}}" alt="{{p.name}}" height="200px" width="100px" class="card-img-top" (click)="selectProduct(p._id)" style="cursor:pointer;">
+             
+              <div class="card-body">
+                <p class="font-weight-bold mb-0">{{p.name | titlecase}} </p>
+                <h6 class="mb-0">{{p.description.substr(0, 40)}} ....</h6><span> <a routerLink="/product-details" (click)="showDetailsPage(p)">More Details</a>
+                <div class="lead font-weight-bold mb-0  float-right text-primary">Rs. {{p.price- (p.discountpercent/100)*p.price }}</div> </span><br>
+                <div class="lead mb-0   offset-2 pri"><del >Rs. {{p.price}} </del> <span class="disper">{{p.discountpercent}}% off</span></div>
+              </div>
+
+             <div class="col-md-6 ">
+                  <button class="btn btn-outline-primary btn-sm btn-block"
+                          [class.disabled]="p.quantity < 1"
+                          [class.btn-outline-danger]="p.quantity < 1"
+                          (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+                    {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart"}}
+                  </button>
+                </div>
+
+            </div>
+           </a>
+            
+
+          </div>
+
+        </div>
+</div>
+</div>
 
 
 

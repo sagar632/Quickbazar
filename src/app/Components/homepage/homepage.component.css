@@ -22,3 +22,17 @@ p{
 .lead{
 	font-size: 25px;
 }
+.card-img-top{
+	object-fit: contain
+	;
+	
+}
+.disper{
+float: right;
+	color: red;
+	font-weight: bold; font-size: 15px;
+}
+.pri{float: right;
+	color: grey; font-size: 15px;
+
+}

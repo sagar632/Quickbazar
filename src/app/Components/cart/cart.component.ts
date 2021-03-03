@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from './../../Services/shopping-cart.service';
 import { IProduct, IProductAddToCart } from './../../interfaces';
-
+import { AuthService } from '../../Services/auth.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -13,7 +13,8 @@ export class CartComponent implements OnInit {
    ShowShippingDetailsForm:boolean;
    AllTotal:number = 0;
 
-  constructor( private cartSevice:ShoppingCartService) { }
+  constructor( private cartSevice:ShoppingCartService,private authservice:AuthService) {
+  console.log('myCart'+this.authservice.getIsAuth()) }
 
   ngOnInit(){
     this.cartItems=this.cartSevice.getAllFromCart();

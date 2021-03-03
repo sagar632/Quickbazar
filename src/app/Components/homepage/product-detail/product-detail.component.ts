@@ -21,7 +21,7 @@ import { FormControl } from '@angular/forms';
 export class ProductDetailComponent implements OnInit {
  reviewform:FormGroup;
     review:Review;
-
+ showModal: boolean;
 
   product;
     id: Number;
@@ -91,7 +91,17 @@ export class ProductDetailComponent implements OnInit {
 
 
 
-
+  show()
+  {
+    this.showModal = true;
+    console.log(this.showModal); // Show-Hide Modal Check
+    
+  }
+  //Bootstrap Modal Close event
+  hide()
+  {
+    this.showModal = false;
+  }
 
 
 
@@ -111,6 +121,7 @@ export class ProductDetailComponent implements OnInit {
   addToCart(product){
     if(this.authService.getIsAuth()){
       this.shoppingCart.addToCart(product, this.productQuantity);
+      console.log(this.authService.getIsAuth());
     }
     else{
        console.log("you are not authenticated");

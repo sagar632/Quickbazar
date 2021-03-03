@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './../../../Services/products.service';
 import { Router } from '@angular/router';
 import { ShoppingCartService } from './../../../Services/shopping-cart.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-seller-dashboard',
   templateUrl: './seller-dashboard.component.html',
@@ -18,7 +19,7 @@ export class SellerDashboardComponent implements OnInit {
   constructor(
     private productsService:ProductsService,
     private cartService:ShoppingCartService,
-    private router:Router) {this.ProductList=false;this.showMyOrders=false; }
+    private router:Router,private http:HttpClient) {this.ProductList=false;this.showMyOrders=false; }
 
   ngOnInit(): void {
     this.productsService.fetchAllProductsBySellerId().
@@ -65,6 +66,16 @@ else{
   this.ProductList=false;
   this.showMyOrders=false;
 }
+
+
+ }
+
+
+
+ deleteProduct(id){
+
+this.http.get(" http://localhost:8000/api/products/bycategory?category=Fooding")
+
 
 
  }

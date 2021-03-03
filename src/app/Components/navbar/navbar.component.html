@@ -59,30 +59,21 @@
         <a class="nav-link" href="home">Home </a>
       </li>
       
-      <li class="nav-item dropdown">
+     
+        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Category
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Electronics Accessories</a>
           <a class="dropdown-item" href="#">Clothing</a>
-          <div class="dropdown-divider">Fooding</div>
+          <div class="dropdown-item">Fooding</div>
           <a class="dropdown-item" href="#">Fashion</a>
           <a class="dropdown-item" href="#">Babies and Toys</a>
           <a class="dropdown-item" href="#">Sports</a>
         </div>
       </li>
-       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link " href="aboutus">About Us</a>
       </li>
@@ -90,10 +81,12 @@
        <li class="nav-item">
         <a class="nav-link " href="contactus">Contact Us</a>
       </li>
-  
-       <li class="nav-item float-right"> <button class="btn btn-primary  m-sm-0 ml-sm-5" type="button">Login</button></li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/myCart" >MyCart-{{TotalItemsInCart}}</a>
+      </li> 
+       <li class="nav-item float-right"> <a class="nav-link" href="/login"><button class="btn btn-primary  m-sm-0 ml-sm-5" type="button">Login</button></a></li>
 
-        <li class="nav-item float-right"> <button class="btn btn-primary  m-sm-0 ml-md-3 mr-2" type="button">Register</button></li>
+        <li class="nav-item float-right"> <a class="nav-link" href="/signup"> <button class="btn btn-primary  m-sm-0 ml-md-3 mr-2" type="button">Register</button></a></li>
           
       
     </ul>

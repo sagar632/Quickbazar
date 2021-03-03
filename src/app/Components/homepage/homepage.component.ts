@@ -4,7 +4,7 @@ import { ProductsService } from './../../Services/products.service';
 import { ShoppingCartService } from './../../Services/shopping-cart.service';
 import { IProductAddToCart } from './../../interfaces';
 import { AuthService } from '../../Services/auth.service';
-
+import { HttpClient } from '@angular/common/http';
 
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
@@ -14,16 +14,20 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-
+jdata;toys;
+fdata;
+sports;
   products:any[];
 proar:any[];
-  electronicproduct:[];
+  electronicproduct;
+  clothing;fooding;
   CartProducts: IProductAddToCart[] = [];
   NumberOfItemsInCumber = 0;
   isuser:Boolean;
+ 
   constructor(config: NgbCarouselConfig,
     private productsService:ProductsService,
-    private shoppingCart:ShoppingCartService,private authService:AuthService) { 
+    private shoppingCart:ShoppingCartService,private authService:AuthService,private http:HttpClient) { 
   config.interval = 4000;
     config.wrap = true;
     config.keyboard = false;
@@ -34,16 +38,54 @@ proar:any[];
     subscribe(
       data => {
         this.products = data
-        console.log(data.length)
-          this.getcate(data);
+        
+         console.log(data)
       
       }
      
          
   ); 
+    
+     this.http.get(" http://localhost:8000/api/products/bycategory?category=Electronics").
+     subscribe(electronics=>{this.electronicproduct=electronics
+       console.log(this.electronicproduct.products)
+     
+       });
+
+
+
+ this.http.get(" http://localhost:8000/api/products/bycategory?category=Fooding").
+     subscribe(fooding=>{this.fooding=fooding
+       console.log(this.fooding.products)
+     
+       });
+
+
+
+      this.http.get(" http://localhost:8000/api/products/bycategory?category=Sports").
+     subscribe(sports=>{this.sports=sports
+       console.log(this.sports.products)
+     
+       });
+
+
+ this.http.get(" http://localhost:8000/api/products/bycategory?category=Toys").
+     subscribe(toys=>{this.toys=toys
+       console.log(this.toys.toys)
+     
+       });
+
+
+
+      this.http.get(" http://localhost:8000/api/products/bycategory?category=Clothing").
+     subscribe(clothing=>{this.clothing=clothing
+       console.log(this.clothing.products)
+     
+       });
+
  this.isuser=this.authService.getIsAuth();
-    console.log(this.isuser);
-    console.log(this.products.filter(o=>o.category='electronics'));
+    console.log("user"+this.isuser);
+    console.log(this.electronicproduct);
     
 
  }

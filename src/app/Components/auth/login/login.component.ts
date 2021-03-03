@@ -13,11 +13,13 @@ export class LogInComponent implements OnInit {
               private router:Router) { }
 
   ngOnInit(): void {
+  
   }
 
   logIn(logInDetails){
     console.log('helllo');
     this.authService.logIn(logInDetails);
+   
   }
 
 }
